@@ -23,7 +23,7 @@ services:
 
 databases:
   - name: sqli-lab-db
-    databaseName: trkn_lab
+    databaseName: trknab
     user: root
     plan: free
     region: frankfurt
