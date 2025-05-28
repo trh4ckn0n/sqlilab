@@ -2,18 +2,26 @@ services:
   - type: web
     name: sqli-lab
     env: php
-    buildCommand: ./render/build.sh
-    startCommand: ""
+    buildCommand: ./render/build.sh  # Tu peux le supprimer si tu n’as pas besoin de build.sh
+    startCommand: ""  # Laisse vide pour PHP Render standard
     plan: free
     envVars:
       - key: DB_HOST
-        value: <à remplacer par l'adresse de ton DB service>
+        fromDatabase:
+          name: sqli-lab-db
+          property: host
       - key: DB_USER
-        value: root
+        fromDatabase:
+          name: sqli-lab-db
+          property: user
       - key: DB_PASS
-        value: ton_mdp
+        fromDatabase:
+          name: sqli-lab-db
+          property: password
       - key: DB_NAME
-        value: vuln_lab
+        fromDatabase:
+          name: sqli-lab-db
+          property: database
 
 databases:
   - name: sqli-lab-db
