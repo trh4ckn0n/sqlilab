@@ -2,4 +2,4 @@
 # Script de build initial pour créer la base
 
 echo "[+] Initialisation DB"
-mysql -h $DB_HOST -u $DB_USER -p$DB_PASS $DB_NAME < setup.sql
+mysql -h $DB_HOST -u $DB_USER -p$DB_PASS $DB_NAME < init.sql
