@@ -7,7 +7,7 @@ RUN docker-php-ext-install mysqli pdo pdo_mysql
 # Copie le code source dans le conteneur
 COPY public/ /var/www/html/
 COPY db.php /var/www/html/
-#COPY .env /var/www/html/
+COPY .env /var/www/html/
 COPY setup.sql /docker-entrypoint-initdb.d/
 
 # Autorise .htaccess et mod_rewrite
