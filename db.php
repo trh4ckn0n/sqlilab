@@ -1,8 +1,8 @@
 <?php
-$host = getenv("DB_HOST") ?: "127.0.0.1"; // 👈 Forcer IP
+$host = getenv("DB_HOST") ?: "sqli-lab-db.onrender.com"; // 🔁 met ici le hostname exact fourni par Render
 $user = getenv("DB_USER") ?: "root";
 $pass = getenv("DB_PASS") ?: "trkn";
-$db   = getenv("DB_NAME") ?: "trkn_lab";
+$db   = getenv("DB_NAME") ?: "trknab";
 
 $conn = new mysqli($host, $user, $pass, $db);
 if ($conn->connect_error) {
