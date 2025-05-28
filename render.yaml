@@ -2,7 +2,7 @@ services:
   - type: web
     name: trknab
     env: php
-    buildCommand: ./render/build.sh
+    buildCommand: ./.render/build.sh
     startCommand: ""
     plan: free
     envVars:
