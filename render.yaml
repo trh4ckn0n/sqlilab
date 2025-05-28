@@ -1,7 +1,9 @@
 services:
   - type: web
     name: sqli-lab
-    env: docker
+    env: php
+    buildCommand: ./render/build.sh
+    startCommand: ""
     plan: free
     envVars:
       - key: DB_HOST
@@ -9,24 +11,14 @@ services:
           name: sqli-lab-db
           property: host
       - key: DB_USER
-        fromDatabase:
-          name: sqli-lab-db
-          property: user
+        value: root
       - key: DB_PASS
-        fromDatabase:
-          name: sqli-lab-db
-          property: password
+        value: trkn
       - key: DB_NAME
-        fromDatabase:
-          name: sqli-lab-db
-          property: database
+        value: trkn_lab
 
 databases:
   - name: sqli-lab-db
     databaseName: trknab
     user: root
-    plan: free
-    region: frankfurt
-    ipAllowList: ["0.0.0.0/0"]
-    initCommands:
-      - source: ./init.sql
+    password: trkn
