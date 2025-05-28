@@ -8,17 +8,17 @@ services:
     envVars:
       - key: DB_HOST
         fromDatabase:
-          name: sqli-lab-db
+          name: trknab
           property: host
       - key: DB_USER
         value: root
       - key: DB_PASS
         value: trkn
       - key: DB_NAME
-        value: trkn_lab
+        value: trknab
 
 databases:
-  - name: sqli-lab-db
+  - name: trknab
     databaseName: trknab
     user: root
     password: trkn
