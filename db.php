@@ -1,5 +1,5 @@
 <?php
-$host = getenv("DB_HOST") ?: "sqli-lab-db.onrender.com"; // 🔁 met ici le hostname exact fourni par Render
+$host = getenv("DB_HOST") ?: "sqlilab.onrender.com"; // 🔁 met ici le hostname exact fourni par Render
 $user = getenv("DB_USER") ?: "root";
 $pass = getenv("DB_PASS") ?: "trkn";
 $db   = getenv("DB_NAME") ?: "trknab";
