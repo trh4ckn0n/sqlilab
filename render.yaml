@@ -1,0 +1,21 @@
+services:
+  - type: web
+    name: sqli-lab
+    env: php
+    buildCommand: ./render/build.sh
+    startCommand: ""
+    plan: free
+    envVars:
+      - key: DB_HOST
+        value: <à remplacer par l'adresse de ton DB service>
+      - key: DB_USER
+        value: root
+      - key: DB_PASS
+        value: ton_mdp
+      - key: DB_NAME
+        value: vuln_lab
+
+databases:
+  - name: sqli-lab-db
+    databaseName: vuln_lab
+    user: root
