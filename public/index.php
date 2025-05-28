@@ -1,33 +1,21 @@
-<?php include("db.php"); ?>
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <title>Recherche Utilisateur - Lab SQLi</title>
-</head>
-<body style="background:#111;color:#0f0;font-family:monospace">
-    <h2>🔍 Recherche d'utilisateur</h2>
-    <form method="GET">
-        <label for="user">Nom :</label>
-        <input type="text" name="user" id="user">
-        <input type="submit" value="Chercher">
-    </form>
+<?php
+include 'db.php';
 
-    <?php
-    if (isset($_GET['user'])) {
-        $name = $_GET['user'];
-        $query = "SELECT id, username, email FROM users WHERE username = '$name'";
-        echo "<pre>💬 SQL Debug: $query</pre>";
-        $result = $conn->query($query);
+if (isset($_GET['id'])) {
+    $id = $_GET['id']; // Pas d'échappement → SQLi vulnérable
+    $query = "SELECT * FROM users WHERE id = $id";
+    $result = mysqli_query($conn, $query);
 
-        if ($result && $result->num_rows > 0) {
-            while($row = $result->fetch_assoc()) {
-                echo "<p>👤 ID: {$row['id']} | Nom: {$row['username']} | Email: {$row['email']}</p>";
-            }
-        } else {
-            echo "<p>Aucun utilisateur trouvé.</p>";
+    if ($result && mysqli_num_rows($result) > 0) {
+        while ($row = mysqli_fetch_assoc($result)) {
+            echo "ID: " . $row['id'] . "<br>";
+            echo "Username: " . $row['username'] . "<br>";
+            echo "Password: " . $row['password'] . "<br><hr>";
         }
+    } else {
+        echo "Aucun résultat.";
     }
-    ?>
-</body>
-</html>
+} else {
+    echo "Paramètre ?id= requis";
+}
+?>
