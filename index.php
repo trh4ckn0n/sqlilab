@@ -1,6 +1,6 @@
 <?php
 include 'init_db.php';
-include 'db.php';
+# include 'db.php';
 
 if (isset($_GET['id'])) {
     $id = $_GET['id']; // Pas d'échappement → SQLi vulnérable
