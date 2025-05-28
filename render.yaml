@@ -25,5 +25,5 @@ services:
 
 databases:
   - name: sqli-lab-db
-    databaseName: vuln_lab
+    databaseName: trkn_lab
     user: root
