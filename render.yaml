@@ -1,9 +1,7 @@
 services:
   - type: web
     name: sqli-lab
-    env: php
-    buildCommand: ./render/build.sh  # Tu peux le supprimer si tu n’as pas besoin de build.sh
-    startCommand: ""  # Laisse vide pour PHP Render standard
+    env: docker
     plan: free
     envVars:
       - key: DB_HOST
@@ -27,3 +25,8 @@ databases:
   - name: sqli-lab-db
     databaseName: trkn_lab
     user: root
+    plan: free
+    region: frankfurt
+    ipAllowList: ["0.0.0.0/0"]
+    initCommands:
+      - source: ./init.sql
