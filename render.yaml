@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: sqli-lab
+    name: trknab
     env: php
     buildCommand: ./render/build.sh
     startCommand: ""
